@@ -20,29 +20,41 @@
 
 <!---------- ROW 1 --------------->
         <div class="row" id="row1">
-            <div class="card" style="width: 10rem;">
+            <h2>Select Players</h2>
+            <div class="card" style="width: 10rem;" id="iron" onclick = "ironClick('value')">
                 <img src="img/iron-man.jpg" class="card-img-top" alt="Iron Man">
                 <div class="card-body">
                     <p class="card-text">Iron Man</p>
+                    <p class="card-text" id="ironHP"></p>
+                    <button onclick="ironAttack('value')">Attack</button>
+                   
                 </div>
             </div>
-            <div class="card" style="width: 10rem;">
+            <div class="card" style="width: 10rem;" id="black" onclick="blackClick('value')">
                 <img src="img/black-widow.jpg" class="card-img-top" alt="Black Widow">
                 <div class="card-body">
                     <p class="card-text">Black Widow</p>
+                    <p class="card-text" id="blackHP"></p>
                 </div>
             </div>
-
+            <div class="card" style="width: 10rem;" id="black" onclick="draxClick('value')">
+                    <img src="img/drax.jpg" class="card-img-top" alt="Black Widow">
+                    <div class="card-body">
+                        <p class="card-text">Drax</p>
+                        <p class="card-text" id="draxHP"></p>
+                    </div>
+                </div>
 
         </div>
  <!---------- ROW 2 --------------->
         <div class="row" id="row2">
+            <h2>User Select</h2>
 
         </div>
 
 <!---------- ROW 3--------------->
         <div class="row" id="row3">
-
+            <h2>AI Select</h2>
         </div>
 
     </div>
