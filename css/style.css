@@ -1,0 +1,21 @@
+
+
+h1 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 500;
+    margin: 10 auto;
+
+}
+
+body {
+    background-image: url("https://static0.cbrimages.com/wordpress/wp-content/uploads/2019/01/Marvel-Studios-10-years.jpg?q=50&fit=crop&w=798&h=407&dpr=1.5");
+    
+    background-size: cover;
+    background-color: rgba(0,0,0,.2);
+    
+}
+
+.img-players {
+
+    width: 150px;
+}
