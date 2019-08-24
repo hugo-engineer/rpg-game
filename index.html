@@ -16,43 +16,54 @@
 
 <body>
     <div class="container ">
-        <h1>Marvel RPG Game</h1>
 
-<!---------- ROW 1 --------------->
+        <h1>Marvel RPG Game</h1>
+        <div id="animeEffect"></div>
+        <div id="attackStatus"></div>
+
+
+        <!---------- ROW 1 --------------->
         <div class="row" id="row1">
+            <button class="btn btn-primary btn-lg btn-block" style="background-color: black"
+                onclick="gameOn()">Attack</button>
+
             <h2>Select Players</h2>
-            <div class="card" style="width: 10rem;" id="iron" onclick = "ironClick('value')">
+
+            <!---------- Iron Man --------------->
+            <div class="card" style="width: 10rem;" id="iron" onclick="userChoice('iron')">
                 <img src="img/iron-man.jpg" class="card-img-top" alt="Iron Man">
                 <div class="card-body">
                     <p class="card-text">Iron Man</p>
-                    <p class="card-text" id="ironHP"></p>
-                    <button onclick="ironAttack('value')">Attack</button>
-                   
+                    <p class="card-text" id="ironHP" style="font-weight: 700"></p>
+
+
                 </div>
             </div>
-            <div class="card" style="width: 10rem;" id="black" onclick="blackClick('value')">
+            <!---------- Black Widow --------------->
+            <div class="card" style="width: 10rem;" id="black" onclick="userChoice('black')">
                 <img src="img/black-widow.jpg" class="card-img-top" alt="Black Widow">
                 <div class="card-body">
                     <p class="card-text">Black Widow</p>
-                    <p class="card-text" id="blackHP"></p>
+                    <p class="card-text" id="blackHP" style="font-weight: 700"></p>
                 </div>
             </div>
-            <div class="card" style="width: 10rem;" id="black" onclick="draxClick('value')">
-                    <img src="img/drax.jpg" class="card-img-top" alt="Black Widow">
-                    <div class="card-body">
-                        <p class="card-text">Drax</p>
-                        <p class="card-text" id="draxHP"></p>
-                    </div>
+            <!---------- Drax --------------->
+            <div class="card" style="width: 10rem;" id="drax" onclick="userChoice('drax')">
+                <img src="img/drax.jpg" class="card-img-top" alt="drax">
+                <div class="card-body">
+                    <p class="card-text">Drax</p>
+                    <p class="card-text" id="draxHP" style="font-weight: 700"></p>
                 </div>
+            </div>
 
         </div>
- <!---------- ROW 2 --------------->
+        <!---------- ROW 2 --------------->
         <div class="row" id="row2">
             <h2>User Select</h2>
 
         </div>
 
-<!---------- ROW 3--------------->
+        <!---------- ROW 3--------------->
         <div class="row" id="row3">
             <h2>AI Select</h2>
         </div>
