@@ -6,11 +6,17 @@ var blackHPDisplay = document.getElementById("blackHP");
 var draxDisplay = document.getElementById("drax");
 var draxHPDisplay = document.getElementById("draxHP");
 
-
 var row1Display = document.getElementById("row1");
 var row2Display = document.getElementById("row2");
 var row3Display = document.getElementById("row3");
 
+var aiSelected;
+var selectedUser;
+var userSelected;
+var charNo;
+var aiNo;
+
+// player object
 var players = [
 
     {
@@ -31,17 +37,20 @@ var players = [
     }
 ]
 
-var playerNames = Object.keys(players);
-
-var aiSelected;
-var selectedUser;
-var userSelected;
-
+// Main function
 function userChoice(userChar) {
 
     if (userSelected == undefined) {
 
         userSelected = userChar;
+
+        switch (userSelected) {
+            case 'iron': charNo = 0;
+                break;
+            case 'black': charNo = 1;
+                break;
+            case 'drax': charNo = 2;
+        };
 
         switch (userSelected) {
             case 'iron': row2Display.appendChild(ironDisplay);
@@ -52,20 +61,26 @@ function userChoice(userChar) {
         };
 
         console.log(userSelected);
+
+        document.getElementById('row1').style.display = "none";
+        document.getElementById('attackButton').style.display = "block";
+
         aiChoice()
+
     } else { alert("You have already picked a character.") }
 
 };
 
-
-// Bug - if ai picked the same character as the user, game would stuff up.
 function aiChoice() {
 
     if (userSelected !== undefined) {
 
         var aiRandom = Math.round(Math.random() * ((players.length - 1) - 0));
-        aiSelected = players[aiRandom].key;
 
+        while (aiRandom == charNo) {
+            aiRandom = Math.round(Math.random() * ((players.length - 1) - 0));
+        };
+        aiSelected = players[aiRandom].key;
         console.log(aiSelected);
 
         switch (aiSelected) {
@@ -75,25 +90,11 @@ function aiChoice() {
                 break;
             case 'drax': row3Display.appendChild(draxDisplay);
         };
-
-    }
+    };
 };
-
 
 function gameOn() {
     if (userSelected !== undefined && aiSelected !== undefined) {
-
-        var charNo;
-
-        switch (userSelected) {
-            case 'iron': charNo = 0;
-                break;
-            case 'black': charNo = 1;
-                break;
-            case 'drax': charNo = 2;
-        };
-
-        var aiNo;
 
         switch (aiSelected) {
             case 'iron': aiNo = 0;
@@ -104,11 +105,11 @@ function gameOn() {
         };
 
         if (players[aiNo].hp <= 0) {
-            alert("user win");
+            alert(`You have won against ${players[aiNo].name}`);
 
 
         } if (players[charNo].hp <= 0) {
-            alert("user lost")
+            alert(`You have lost against ${players[aiNo].name}`);
         } else {
             players[aiNo].hp -= players[charNo].attack;
             players[charNo].hp -= players[aiNo].attack;
@@ -125,10 +126,9 @@ function gameOn() {
         function animate() {
 
             document.getElementById('animeEffect').style.opacity = 0.7;
-
             document.getElementById('attackStatus').innerHTML = `Your attack is ${players[charNo].attack} and AI's attack is ${players[aiNo].attack}`;
 
-            setTimeout(timer, 1000);
+            setTimeout(timer, 1500);
 
             function timer() {
                 document.getElementById('attackStatus').innerHTML = '';
